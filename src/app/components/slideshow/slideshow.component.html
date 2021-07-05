@@ -6,26 +6,26 @@
     <div class="swiper-slide" *ngFor="let movie of movies">
     
       <img [src]="img + movie.backdrop_path" alt="" class="img-back">
-      <div class="movie-description text-white px-5 py-5">
+      <div class="movie-description text-white px-5 py-10">
         
         <div class="row">
           <div class="col-md-7">
             <h1 class="text-4xl">{{movie.title}}</h1>
-            <div class="row" style="width: 150px;">
-              <div class="col-10">
-                *******
+            <div class="row py-2" >
+              <div class="col">
+                 <star-rating [value]="movie.vote_average/2" totalstars="5" checkedcolor="yellow" uncheckedcolor="gray" size="20px" readonly="false"></star-rating>
               </div>
-              <div class="col-2">
-                {{movie.vote_average}}
-
+              <div class="col-10">
+                <p class="text-gray-300"> ({{movie.vote_count}} críticas)
+                </p>
               </div>
             </div>
         <p>{{movie.overview |slice:0:200}} ...</p>
           </div>
           <div class="col-md-5 center">
             <br>
-              <button class="px-3 py-2 bg-red-500 rounded-md mr-2 hover:bg-red-600 ">Ver Detalles</button>
-              <button class="px-3 py-1.5 rounded-md border-white border-2 hover:bg-gray-500">Agregar Favoritos</button>
+              <button class="px-3 py-2 bg-red-500 rounded-md mr-2 hover:bg-red-600 "><i class="far fa-eye"></i>  Ver Detalles</button>
+              <button class="px-3 py-1.5 rounded-md border-white border-2 hover:bg-gray-500"><i class="far fa-heart"></i> Agregar Favoritos</button>
       
           </div>
         </div>
@@ -41,3 +41,4 @@
   <div class="swiper-button-prev" (click)="onSlidePrev()"></div>
 
 </div>
+
