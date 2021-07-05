@@ -7,7 +7,14 @@
 @import '~swiper/swiper-bundle';
 
 
-html, body {
-    color: #fff;
-    background: #111827;
+// html, body {
+//     color: #fff;
+//     background: #111827;
+// }
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

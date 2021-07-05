@@ -1,26 +1,43 @@
 <!-- Slider main container -->
 <div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-      <!-- Slides -->
-      <div class="swiper-slide" *ngFor="let movie of movies">
-        <div class="movie-description">
-          <h3>{{movie.title}}</h3>
-          <p>{{movie.overview}}</p>
-       </div>
-       <img [src]="img + movie.backdrop_path" alt="" class="img-back">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide" *ngFor="let movie of movies">
+    
+      <img [src]="img + movie.backdrop_path" alt="" class="img-back">
+      <div class="movie-description text-white px-5 py-5">
+        
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-4xl">{{movie.title}}</h1>
+            <div class="row" style="width: 150px;">
+              <div class="col-10">
+                *******
+              </div>
+              <div class="col-2">
+                {{movie.vote_average}}
 
+              </div>
+            </div>
+        <p>{{movie.overview |slice:0:200}} ...</p>
+          </div>
+          <div class="col-md-5 center">
+            <br>
+              <button class="px-3 py-2 bg-red-500 rounded-md mr-2 hover:bg-red-600 ">Ver Detalles</button>
+              <button class="px-3 py-1.5 rounded-md border-white border-2 hover:bg-gray-500">Agregar Favoritos</button>
+      
+          </div>
+        </div>
       </div>
-      
-      
+     
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
-  
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
   </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-next" (click)="onSlideNext()"></div>
+  <div class="swiper-button-prev" (click)="onSlidePrev()"></div>
+
+</div>

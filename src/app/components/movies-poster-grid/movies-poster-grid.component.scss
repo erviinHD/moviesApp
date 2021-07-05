@@ -1,0 +1,13 @@
+#hr2{ 
+    height:1px; 
+    width: 100%;
+  }
+
+  img:hover{ 
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1ms;
+    -webkit-box-shadow: 2px 10px 8px #999;
+    -moz-box-shadow: 2px 10px 8px #999;
+    filter: shadow(color=#999999, direction=135, strength=2);
+}

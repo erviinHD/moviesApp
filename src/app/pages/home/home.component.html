@@ -1,5 +1,10 @@
-<p>home works!</p>
 
 <ng-container *ngIf="movies.length >0">
     <app-slideshow [movies]="movies"></app-slideshow>
+</ng-container>
+
+
+<ng-container *ngIf="movies.length >0">
+    <app-movies-poster-grid [movies]="movies"></app-movies-poster-grid>
+
 </ng-container>

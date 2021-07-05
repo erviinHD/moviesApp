@@ -1,0 +1,20 @@
+<div class="max-w-7xl mx-auto py-6 sm:px-4 lg:px-4">
+    <div class="py-6 sm:px-0">
+
+
+        <div class="col center">
+                <h1 style="width: 15%;">
+                    Películas Populares
+                </h1>
+            <hr id="hr2">
+
+        </div>
+        <div class="row">
+            <div class="col-md-2 py-4" *ngFor="let movie of movies">
+                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt=""
+                    class="img-fluid rounded-md hover:shadow-lg  img">
+            </div>
+        </div>
+    </div>
+
+</div>

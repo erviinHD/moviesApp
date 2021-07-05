@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div>
-    <nav class="bg-gray-800">
+    <nav class="bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -12,14 +12,16 @@
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <a routerLink="/home" routerLinkActive="active"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                                class="text-gray-500 px-3 py-2  text-sm font-medium">Inicio</a>
                             <a routerLink="/search" routerLinkActive="active"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+                                class="text-gray-500  px-3 py-2  text-sm font-medium">Team</a>
                         </div>
                     </div>
                 </div>
                 <div class=" items-end justify-between hidden md:block">
-                    <input type="text" class="rounded-md px-3 py-2 justify-end" placeholder="Buscar peliculas">
+                    <input type="text"
+                        class="rounded-md px-3 py-2 justify-end  bg-gray-50 focus:outline-none focus:ring focus:border-gray-600"
+                        placeholder="Buscar peliculas">
 
                 </div>
             </div>

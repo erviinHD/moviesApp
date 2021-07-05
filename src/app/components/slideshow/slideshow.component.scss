@@ -1,16 +1,27 @@
 .swiper-container{
-    height: 400px;
+    height: 500px;
     width: 100%;
 }
 
 .movie-description{
     position: absolute;
-    width: 30%;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.823), rgba(255, 255, 255, 0));
-    height: 100%;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.892), rgba(255, 255, 255, 0));
+   
 }
 
 .img-back{
     height: 100% !important;
     width: 100%;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    color: white;
+}
+
+button{
+    -webkit-box-shadow: 3px 3px 6px rgb(24, 24, 24);
+    -moz-box-shadow: 3px 3px 6px rgb(24, 24, 24);
+    filter: shadow(color=#999999, direction=135, strength=2);
 }
