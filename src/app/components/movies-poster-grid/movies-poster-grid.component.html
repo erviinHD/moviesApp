@@ -1,24 +1,21 @@
 <div class="max-w-7xl mx-auto py-6 sm:px-4 lg:px-4">
     <div class="py-6 sm:px-0">
-        <div class="col center">
+        <div class="col center pb-2">
             <h1 style="width: 20%" class="font-bold text-xl">Películas Populares</h1>
             <hr id="hr2" />
         </div>
         <div class="row">
-            <div class="col-md-2 py-4" *ngFor="let movie of movies">
+            <div class="col-lg-2 col-md-3 col-sm-6  py-4" *ngFor="let movie of movies">
                 <div class="div-imagen">
                     <div>
-                        <h1 class="text-lg font-bold pb-2">{{movie.title}}</h1>
-                        <p>{{movie.overview |slice:0:100}} ...</p>
-                        <div class="row py-2" >
-                            <div class="col">
-                               <star-rating [value]="movie.vote_average/2" totalstars="5" checkedcolor="yellow" uncheckedcolor="gray" size="15px" readonly="false"></star-rating>
-                            </div>
-                            <div class="col-5 center">
-                              <p class="text-gray-500 text-xs font-semibold">{{movie.vote_average/2 |number}} 
-                              </p>
-                            </div>
-                          </div>
+                        <h1 class="text-lg font-bold pb-2">{{movie.title | slice:0:20}}</h1>
+                        <div class="py-1 flex justify-start">
+                                <star-rating [value]="movie.vote_average/2" totalstars="5" checkedcolor="yellow"
+                                    uncheckedcolor="gray" size="15px" readonly="false"></star-rating>
+                                <p class="text-gray-500 text-xs font-semibold ml-2 flex flex-wrap content-center">{{movie.vote_average/2 |number}}
+                                </p>
+                        </div>
+                        <p class="pt-1">{{movie.overview |slice:0:75}} ...</p>
                     </div>
                     <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt=""
                         class="img-fluid rounded-md hover:shadow-lg img desvanecer" />
