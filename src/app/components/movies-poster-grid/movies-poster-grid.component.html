@@ -5,7 +5,7 @@
             <hr id="hr2" />
         </div>
         <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-6  py-4" *ngFor="let movie of movies">
+            <div class="col-lg-2 col-md-3 col-sm-6  py-4  center" *ngFor="let movie of movies">
                 <div class="div-imagen">
                     <div>
                         <h1 class="text-lg font-bold pb-2">{{movie.title | slice:0:20}}</h1>
@@ -17,7 +17,7 @@
                         </div>
                         <p class="pt-1">{{movie.overview |slice:0:75}} ...</p>
                     </div>
-                    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt=""
+                    <img [src]="movie.poster_path | poster" alt=""
                         class="img-fluid rounded-md hover:shadow-lg img desvanecer" />
                 </div>
             </div>
