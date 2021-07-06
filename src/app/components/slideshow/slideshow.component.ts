@@ -10,7 +10,7 @@ import { Movie } from '../../interfaces/Billboard-Response';
 })
 export class SlideshowComponent implements OnInit, AfterViewInit {
   
-  img = 'https://image.tmdb.org/t/p/ ';
+  img = 'https://image.tmdb.org/t/p/original';
   public swiper: Swiper;
   @Input() movies: Movie[];
 
