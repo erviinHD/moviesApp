@@ -23,6 +23,10 @@ export class MoviesService {
     };
   }
 
+  resetBillboardContent(){
+    this.pageBillboard = 1;
+  }
+
   getBilboard(): Observable<Movie[]> {
     if (this.loading) {
       return of([]);
@@ -43,7 +47,7 @@ export class MoviesService {
   }
 
   searchMovie(text: string): Observable<Movie[]> {
-    const params = { ...this.params, page: '1', query: text };
+    const params = { ...this.params, page: '1', query: text, include_adult: 'true' };
 
     return this.http.get<BillboardResponse>(`${this.baseURL}search/movie`, { params })
       .pipe(

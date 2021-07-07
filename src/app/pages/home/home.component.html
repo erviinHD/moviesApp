@@ -1,10 +1,12 @@
-
 <ng-container *ngIf="movies.length >0">
     <app-slideshow [movies]="moviesSlideShow"></app-slideshow>
 </ng-container>
 
 
 <ng-container *ngIf="movies.length >0">
+    <div class="max-w-7xl mx-auto px-4 pt-5 sm:px-6 lg:px-8">
+        <h1 class="font-bold text-xl">Películas Populares</h1>
+    </div>
     <app-movies-poster-grid [movies]="movies"></app-movies-poster-grid>
 
 </ng-container>

@@ -11,12 +11,14 @@ import { Movie } from '../../interfaces/Billboard-Response';
 export class MovieSearchComponent implements OnInit {
 
   movies: Movie[] = [];
-
+  textSearch: string = ''
+  
   constructor(private activatedRoute: ActivatedRoute, private _movie: MoviesService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      this._movie.searchMovie(params.searchText).subscribe(res=>{
+      this.textSearch = params.searchText;
+      this._movie.searchMovie(this.textSearch).subscribe(res=>{
         this.movies = res;
         console.log(this.movies);
         
