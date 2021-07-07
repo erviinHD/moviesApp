@@ -14,7 +14,7 @@ const routes: Routes = [
     component: MovieDetailComponent,
   },
   {
-    path: 'search',
+    path: 'search/:searchText',
     component: MovieSearchComponent,
   },
   {

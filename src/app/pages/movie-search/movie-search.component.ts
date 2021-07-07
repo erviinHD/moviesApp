@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MoviesService } from 'src/app/services/movies.service';
+import { Movie } from '../../interfaces/Billboard-Response';
 
 @Component({
   selector: 'app-movie-search',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieSearchComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[] = [];
+
+  constructor(private activatedRoute: ActivatedRoute, private _movie: MoviesService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params=>{
+      this._movie.searchMovie(params.searchText).subscribe(res=>{
+        this.movies = res;
+        console.log(this.movies);
+        
+      })
+    })
   }
 
 }

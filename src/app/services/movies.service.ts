@@ -13,7 +13,7 @@ export class MoviesService {
   private pageBillboard = 1;
   public loading: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get params() {
     return {
@@ -40,5 +40,14 @@ export class MoviesService {
           this.loading = false;
         })
       );
+  }
+
+  searchMovie(text: string): Observable<Movie[]> {
+    const params = { ...this.params, page: '1', query: text };
+
+    return this.http.get<BillboardResponse>(`${this.baseURL}search/movie`, { params })
+      .pipe(
+        map(res => res.results)
+      )
   }
 }

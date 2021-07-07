@@ -20,10 +20,10 @@
                 </div>
                 <div class=" items-end justify-between hidden md:block">
                     <div class="relative">
-                        <div class="absolute top-4 "> <i
-                                class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i> </div> <input
-                            type="text" class="h-14 w-100 pl-10 rounded-lg z-0  focus:outline-none"
-                            placeholder="Buscar películas...">
+                        <div class="absolute top-4 "> 
+                            <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i> 
+                        </div> 
+                        <input #searchText (keyup.enter)="searchMovie(searchText.value)" type="search" class="h-14 w-100 pl-10 rounded-lg z-0  focus:outline-none" placeholder="Buscar películas...">
                         <!-- <div class="absolute top-2 right-2"> 
                             <button class="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600">Buscar</button>
                         </div> -->
