@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { BillboardResponse, Movie } from '../interfaces/Billboard-Response';
+import { CredistResponse } from '../interfaces/Credits-Response';
+import { MovieResponse } from '../interfaces/Movie-Response';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,7 @@ export class MoviesService {
   private pageBillboard = 1;
   public loading: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   get params() {
     return {
@@ -23,7 +25,7 @@ export class MoviesService {
     };
   }
 
-  resetBillboardContent(){
+  resetBillboardContent() {
     this.pageBillboard = 1;
   }
 
@@ -47,11 +49,34 @@ export class MoviesService {
   }
 
   searchMovie(text: string): Observable<Movie[]> {
-    const params = { ...this.params, page: '1', query: text, include_adult: 'true' };
+    const params = {
+      ...this.params,
+      page: '1',
+      query: text,
+      include_adult: 'true',
+    };
 
-    return this.http.get<BillboardResponse>(`${this.baseURL}search/movie`, { params })
+    return this.http
+      .get<BillboardResponse>(`${this.baseURL}search/movie`, { params })
+      .pipe(map((res) => res.results));
+  }
+
+  getMovieDetail(id: string) {
+    return this.http
+      .get<MovieResponse>(`${this.baseURL}/movie/${id}`, {
+        params: this.params,
+      })
+      .pipe(catchError((err) => of(null)));
+  }
+
+  getCast(id: string) {
+    return this.http
+      .get<CredistResponse>(`${this.baseURL}/movie/${id}/credits`, {
+        params: this.params,
+      })
       .pipe(
-        map(res => res.results)
-      )
+        map((res) => res.cast),
+        catchError((err) => of([]))
+      );
   }
 }

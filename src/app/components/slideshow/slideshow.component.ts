@@ -1,5 +1,6 @@
 import { AfterViewInit } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swiper from 'swiper';
 import { Movie } from '../../interfaces/Billboard-Response';
 
@@ -13,7 +14,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
   public swiper: Swiper;
   @Input() movies: Movie[];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngAfterViewInit(): void {
     this.swiper = new Swiper('.swiper-container', {
@@ -31,5 +32,9 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
 
   onSlidePrev() {
     this.swiper.slidePrev();
+  }
+
+  goMovie(movie: Movie) {
+    this.router.navigate(['/movie', movie.id])
   }
 }

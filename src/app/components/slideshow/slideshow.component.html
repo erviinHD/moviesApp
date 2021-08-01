@@ -10,7 +10,7 @@
         
         <div class="row">
           <div class="col-md-7">
-            <h1 class="text-4xl">{{movie.title}}</h1>
+            <h1 class="text-4xl font-bold">{{movie.title}}</h1>
             <div class="py-2 flex justify-start" >
              
                  <star-rating [value]="movie.vote_average/2" totalstars="5" checkedcolor="yellow" uncheckedcolor="gray" size="20px" readonly="false"></star-rating>
@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-5 center">
             <br>
-              <button class="px-3 py-2 bg-red-500 rounded-md mr-2 hover:bg-red-600 "><i class="far fa-eye"></i>  Ver Detalles</button>
+              <button class="px-3 py-2 bg-red-500 rounded-md mr-2 hover:bg-red-600 " (click)="goMovie(movie)"><i class="far fa-eye"></i>  Ver Detalles</button>
               <button class="px-3 py-1.5 rounded-md border-white border-2 hover:bg-gray-500"><i class="far fa-heart"></i> Agregar Favoritos</button>
       
           </div>

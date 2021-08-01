@@ -6,6 +6,7 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 
+import { RatingModule } from 'ng-starrating';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PipesModule } from '../pipes/pipes.module';
   imports: [
     CommonModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    RatingModule
   ]
 })
 export class PagesModule { }
