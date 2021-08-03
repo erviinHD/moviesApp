@@ -79,4 +79,14 @@ export class MoviesService {
         catchError((err) => of([]))
       );
   }
+  getCrew(id: string):Observable<Cast[]> {
+    return this.http
+      .get<CredistResponse>(`${this.baseURL}/movie/${id}/credits`, {
+        params: this.params,
+      })
+      .pipe(
+        map((res) => res.crew),
+        catchError((err) => of([]))
+      );
+  }
 }

@@ -75,15 +75,19 @@
                                 <div class="mt-44">
                                     <h1 class="font-bold text-xl">Director</h1>
                                     <div class="py-4">
-                                        sssss
+                                        <span class="py-3" *ngFor="let item of productor">
+                                            {{item.name}},
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mt-44">
-                                    <h1 class="font-bold text-xl">Escritor</h1>
+                                    <h1 class="font-bold text-xl">Productor</h1>
                                     <div class="py-4">
-                                        sssss
+                                        <span class="py-3" *ngFor="let item of writer">
+                                            {{item.name}}, 
+                                        </span>
                                     </div>
                                 </div>
                             </div>
