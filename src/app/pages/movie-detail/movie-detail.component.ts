@@ -11,8 +11,8 @@ import { Cast } from '../../interfaces/Credits-Response';
 })
 export class MovieDetailComponent implements OnInit {
   public movie: MovieResponse;
-  private cast: Cast[];
-  private timeMovie: String = '';
+  public cast: Cast[] = [];
+  public timeMovie: String = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private _movies: MoviesService,
@@ -26,11 +26,13 @@ export class MovieDetailComponent implements OnInit {
         this.router.navigateByUrl('/home');
       }
       this.movie = res;
+      console.log(this.movie);
+      
       this.timeMovie = this.minsToString(this.movie.runtime);
     });
 
     this._movies.getCast(id).subscribe((cast) => {
-      this.cast = cast;
+      this.cast = cast.filter(actor=>actor.profile_path !== null);
     });
   }
 

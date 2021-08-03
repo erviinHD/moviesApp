@@ -13,7 +13,7 @@ import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
